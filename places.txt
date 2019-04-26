@@ -1,0 +1,32 @@
+5
+Shageldi
+Most Romantic: Istanbul, Turkey
+41.0082
+28.9784
+white
+Shageldi
+Awesome city: Moscow, Russia
+55.7558
+37.6173
+red
+Shageldi
+Hometown: Turkmenabat, Turkmenistan
+39.0041
+63.5688
+black
+Shageldi
+Dream city: New York, USA
+40.7128
+-74.007233
+white
+Shageldi
+Dilemma: Kazan, Russia
+55.8304
+49.0661
+yellow
+
+
+# NOTES:
+# 1) The first number represents the number of entries in the file. Make sure you update that number if you add more.
+# 2) No spaces between entries! The code doesn't handle blank lines.
+# 3) Don't forget the type of data for each line as you create the code.
