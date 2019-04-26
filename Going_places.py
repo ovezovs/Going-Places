@@ -161,39 +161,40 @@ class Place:
 
         return location
 
-    def MyTkinter(self):
+    def my_tkinter(self):
         """creates tkinter window for the users to input their information"""
 
         # setting up a Tkinter window
         self.root = Tk()
-        self.root.geometry("350x300")
+        self.root.geometry("450x350")
         self.root.title("User Information")  # Sets root window title
         heading = Label(self.root, text="""Please fill out the following spaces!\nIf you would like your 
-        picture to be in place of a default pin, click the "Take a selfie" button\nAfter, click save.""", bg="blue",
-                        fg="white", width="350", height="2")   # creating a heading for the window
+                picture to be in place of a default pin, click the "Take a selfie" button\nAfter, click save.""",
+                        bg="blue",
+                        fg="white", width="450", height="4")  # creating a heading for the window
         heading.pack()
 
         name_label = Label(self.root, text="Enter your name *", fg="green")  # Asking users to input their name
-        color_label = Label(self.root, text="Choose a color for your pin *", fg="green")   # Asking user's to
-                                                                                           # choose a color
+        color_label = Label(self.root, text="Choose a color for your pin *", fg="green")  # Asking user's to
+        # choose a color
 
-        name_label.place(x=20, y=60)
-        color_label.place(x=20, y=115)
+        name_label.place(x=20, y=80)
+        color_label.place(x=20, y=135)
 
-        self.name_entry = Entry(self.root)        # textbox for user name entry
-        self.color_entry = Combobox(self.root)    # combobox for the user to choose a color
+        self.name_entry = Entry(self.root)  # textbox for user name entry
+        self.color_entry = Combobox(self.root)  # combobox for the user to choose a color
         self.color_entry['values'] = ("Red", "Green", "Blue", "Orange", "Purple", "Pink", "White", "Black", "Yellow")
         self.color_entry.current(1)
 
-        self.name_entry.place(x=20, y=85)
-        self.color_entry.place(x=20, y=140)
+        self.name_entry.place(x=20, y=105)
+        self.color_entry.place(x=20, y=160)
 
         selfie_button = Button(self.root, text="Take a selfie", command=lambda: self.capture_user_image(), fg="black")
-        selfie_button.place(x=20, y=175)     # a button that calls a function to capture user's image
+        selfie_button.place(x=20, y=195)  # a button that calls a function to capture user's image
 
         submit_button = Button(self.root, text="Save", command=lambda: self.save_info(), bg="yellow", fg="black",
                                width="35", height="1")
-        submit_button.place(x=20, y=220)     # a button to save the all user information
+        submit_button.place(x=20, y=240)  # a button to save the all user information
 
         self.root.mainloop()
 
@@ -213,10 +214,12 @@ class Place:
         """
         # taking a picture with web camera and saving it
         camera_port = 0  # index of camera
-        camera = cv2.VideoCapture(camera_port)
+        camera = cv2.VideoCapture(camera_port, cv2.CAP_DSHOW)
         time.sleep(0.1)
         return_value, image = camera.read()
         cv2.imwrite("captures/opencv.png", image)  # saving the capture
+        camera.release()
+        cv2.destroyAllWindows()
 
         # reducing the size of the taken picture
         im = PIL.Image.open("captures/opencv.png")
@@ -236,7 +239,7 @@ def handler(x, y):
     """handles the mouse click event and calls several functions to """
 
     user_obj = Place("", y, x, "")
-    user_obj.MyTkinter()
+    user_obj.my_tkinter()
     user_obj.location = user_obj.coords_to_address()  # return a string (text) with address
 
     print(str(user_obj))
@@ -259,8 +262,9 @@ def main():
     :return: None
     """
 
-    # A sample file was created for you to use here: places.txt
-    in_file = input("Enter the name of your input file: ")
+    in_file = "places.txt"
+
+    # setting up the turtle screen
     global wn
     wn = turtle.Screen()
     wn.setup(width=1100, height=650, startx=0, starty=0)
