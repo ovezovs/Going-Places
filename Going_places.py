@@ -2,11 +2,12 @@
 # Author: Shageldi Ovezov
 # Username: ovezovs
 #
-# Assignment: P01: Oh, The Places You'll Go!
+# Project: Going Places
 #
 # Purpose:  To create a map of locations
 #           where the user is originally from or has visited,
 #           and to use tuples and lists correctly.
+#           To enable users to pin places (with their selfie) of their choice.
 ######################################################################
 # Acknowledgements:
 #
