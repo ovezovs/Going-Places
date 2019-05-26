@@ -37,3 +37,9 @@ URL to the source: https://www.quora.com/How-do-I-create-a-GIF-file-from-a-bunch
 
 3. Learned all Tkinter functionalities from the following source.
 URL to the source: https://likegeeks.com/python-gui-examples-tkinter-tutorial/
+
+## Additional
+
+Following is the CRC (Class-responsibility-collaboration) card for the project:
+
+![alt text](CRC_card.png "CRC card")
